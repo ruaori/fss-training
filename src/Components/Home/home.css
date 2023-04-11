@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header.topbar{
+    width: 100%;
+    display: inline-block;
+    position: fixed;
+}
+
+.header{
+    display: inline-block;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid black;
+}
+.header-scrolling{
+    width: 40%;
+}
+.header-options{
+    width: 13%;
+}
+.header-logo{
+    width: 25%;
+}

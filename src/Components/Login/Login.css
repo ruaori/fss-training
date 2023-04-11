@@ -34,3 +34,8 @@ input{
 .login-form{
     font-weight: bold;
 }
+
+.login-form.logo-company{
+    border: 0;
+    max-width: 100%;
+}

@@ -19,7 +19,7 @@ const Clock = () => {
         <div>
             <div>
                 <h3>
-                    {format(date, "dd/MM/yyyy hh:mm:ss")}
+                    {format(date, "dd/MM/yyyy kk:mm:ss")}
                 </h3>
 
             </div>

@@ -4,6 +4,9 @@ import handleLogin from "../../Services/loginServices";
 import { useNavigate } from "react-router-dom";
 import { loginAction } from "../../Redux/actions/userAction";
 import './Login.css';
+import logoCompany from '../../Assets/logo-company.png';
+import userIcon from '../../Assets/user.svg';
+import passIcon from '../../Assets/pass.svg';
 
 const Login = () => {
     const [inputs, setInputs] = useState({
@@ -30,7 +33,7 @@ const Login = () => {
         const res = handleLogin(formData);
         if (res === true) {
             dispatch(loginAction(formData));
-            navigate('/home');
+            navigate("/home");
         }
         else {
             window.alert('Sai tài khoản hoặc mật khẩu!')
@@ -38,14 +41,18 @@ const Login = () => {
     };
 
     return (
-        <div className='loginForm'>
+        <div className='form-login'>
+
             <form>
+                <div className="login-form logo-company">
+                    <img src={logoCompany} alt="this" />
+                </div>
                 <div className='login-form username'>
-                    <label>Username: </label>
+                    <img className="icon" src={userIcon} alt="this" />
                     <input type='text' name='username' value={username} onChange={handleChange} className='username' />
                 </div>
                 <div className='login-form password'>
-                    <label>Password: </label>
+                    <img className="icon" src={passIcon} alt="this" />
                     <input type='text' name='password' value={password} onChange={handleChange} className='password' />
                 </div>
                 <div id="errorMessage"></div>
