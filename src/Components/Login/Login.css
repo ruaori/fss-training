@@ -1,41 +1,104 @@
-body{
-    padding: 0;
-    margin:0;
-}
-.errorMessage{
-    height: 10px;
-    justify-content: center;
-    margin: auto;
-}
-.loginForm{
-    border: 1px solid grey;
-    width: 300px;
-    height: 400px;
-    justify-content: center;
+.form-login{
     text-align: center;
-    margin: 100px 70px 0 auto;
+    justify-content:right;
+    display: flex;
+    padding: 90px 0 90px 0;
+    background-image:  url('../../Assets/background.jpg');
+    background-repeat:no-repeat ;
+    background-size: cover;
 }
-.username{
-    margin-top: 50px;
+
+.sub-main{
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    width: 32%;
+    padding-top: 10px ;
+    border-radius: 10px;
+    background-color: #0071ba;
+    margin-right: 50px;
 }
-.password{
-    margin-top: 20px;
-    margin-bottom: 10px;
+
+.imgs{
+    padding-top: 20px;
+    justify-content: center;
+    display: flex;
 }
-button{
-    border-radius: 5%;
-    padding: 15px;
+
+.container-img{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 115px;
+    width: 115px;
 }
+
+.logo-company{
+    height: 80px;
+    width: fit-content;
+    vertical-align: middle;
+}
+
 input{
-    border-radius: 5%;
-    padding: 8px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: inset #888; 
+    border:none;
+    outline: none;
+    
 }
 
 .login-form{
-    font-weight: bold;
+    padding-top: 30px;
 }
 
-.login-form.logo-company{
-    border: 0;
+.name{
+    padding-left: 50px;
+    font-size: 15px;
     max-width: 100%;
+}
+
+
+.icon{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+}
+
+button{
+    margin-top: 20px;
+    width: 350px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    background-color: #185ba8;
+}
+
+.link{
+    padding-top: 20px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.register{
+    padding: 0 150px 0 0;
+}
+
+.vi-icon,.en-icon{
+    height: 25px;
+    width: 25px;
+    padding-top: 20px;
+}
+
+.vi-lan{
+    padding: 0 150px 0 0;
 }

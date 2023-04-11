@@ -7,6 +7,8 @@ import './Login.css';
 import logoCompany from '../../Assets/logo-company.png';
 import userIcon from '../../Assets/user.svg';
 import passIcon from '../../Assets/pass.svg';
+import vnIcon from '../../Assets/vietnam.svg';
+import ukIcon from '../../Assets/uk.svg';
 
 const Login = () => {
     const [inputs, setInputs] = useState({
@@ -42,26 +44,45 @@ const Login = () => {
 
     return (
         <div className='form-login'>
+            <div className="sub-main">
+                <form>
+                    <div className="imgs">
+                        <div className="container-img">
+                            <img src={logoCompany} alt="this" className="logo-company" />
+                        </div>
+                    </div>
 
-            <form>
-                <div className="login-form logo-company">
-                    <img src={logoCompany} alt="this" />
-                </div>
-                <div className='login-form username'>
-                    <img className="icon" src={userIcon} alt="this" />
-                    <input type='text' name='username' value={username} onChange={handleChange} className='username' />
-                </div>
-                <div className='login-form password'>
-                    <img className="icon" src={passIcon} alt="this" />
-                    <input type='text' name='password' value={password} onChange={handleChange} className='password' />
-                </div>
-                <div id="errorMessage"></div>
-                <div className='login-form btnLogin'>
-                    <button type='submit' onClick={handleSubmit}>
-                        Đăng nhập
-                    </button>
-                </div>
-            </form>
+
+                    <div>
+                        <div className='login-form'>
+                            <img className="icon" src={userIcon} alt="this" />
+                            <input placeholder="username" type='text' name='username' value={username} onChange={handleChange} className='name' />
+                        </div>
+
+                        <div className='login-form'>
+                            <img className="icon" src={passIcon} alt="this" />
+                            <input placeholder="password" type='text' name='password' value={password} onChange={handleChange} className='name' />
+                        </div>
+
+                        <div className='login-button'>
+                            <button type='submit' onClick={handleSubmit}>
+                                Đăng nhập
+                            </button>
+                        </div>
+                        <p className="link">
+                            <a className="register" href="#">Mở tài khoản</a><a className="forgotPass" href='#'>Quên mật khẩu</a>
+                        </p>
+                        <div className="vi-en">
+                            <img className="vi-icon" src={vnIcon} />
+                            <a className="vi-lan">Tiếng việt</a>
+                            <img className="en-icon" src={ukIcon} />
+                            <a className="en-lan">English</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
         </div>
     );
 }

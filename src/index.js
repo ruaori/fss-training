@@ -14,25 +14,7 @@ import { Route, Routes } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      {/* {content} */}
-      <Routes>
-
-        <Route path='/' element={
-          <PrivateRoute>
-            <Navigate to='/home' />
-          </PrivateRoute>
-        } />
-
-        <Route path='home' element={
-          <PrivateRoute>
-            <Home />
-          </PrivateRoute>
-        } />
-
-        <Route path='login' element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+    <App />
   </Provider>
 );
 
