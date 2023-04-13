@@ -3,21 +3,10 @@ import TableToolbar from './TableToolbar';
 
 const TableHeader = () => {
 
-    const labelHOSE = () => {
-        if (selectMarket === 'vn30')
-            return 'VN30'
-        else return 'HOSE'
-    }
 
-    const labelHNX = () => {
-        if (selectMarket === 'hnx30')
-            return 'HNX30'
-        else return 'HNX'
-    }
-    
     return (
-        <div className='table-header'> 
-                <TableToolbar />
+        <div className='table-header'>
+            <TableToolbar />
             <div className="label">
                 <table border={1}>
                     <tr>
