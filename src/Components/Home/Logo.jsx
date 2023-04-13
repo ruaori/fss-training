@@ -2,10 +2,10 @@ import LogoImg from '../../Assets/logo.png';
 import './home.css';
 const Logo = () => {
     return (
-        <div className="Logo header">
-            <img src={LogoImg} alt='logo' />
-
+        <div className='logo'>
+            <img src={LogoImg} alt='logo' className='logo' />
         </div>
+
     );
 }
 

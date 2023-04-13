@@ -9,7 +9,7 @@ import userIcon from '../../Assets/user.svg';
 import passIcon from '../../Assets/pass.svg';
 import vnIcon from '../../Assets/vietnam.svg';
 import ukIcon from '../../Assets/uk.svg';
-
+import front_vi from '../../Assets/front_vi.png';
 const Login = () => {
     const [inputs, setInputs] = useState({
         username: '',
@@ -52,7 +52,6 @@ const Login = () => {
                         </div>
                     </div>
 
-
                     <div>
                         <div className='login-form'>
                             <img className="icon" src={userIcon} alt="this" />
@@ -65,7 +64,7 @@ const Login = () => {
                         </div>
 
                         <div className='login-button'>
-                            <button type='submit' onClick={handleSubmit}>
+                            <button className="loginButton" type='submit' onClick={handleSubmit}>
                                 Đăng nhập
                             </button>
                         </div>
@@ -74,9 +73,9 @@ const Login = () => {
                         </p>
                         <div className="vi-en">
                             <img className="vi-icon" src={vnIcon} />
-                            <a className="vi-lan">Tiếng việt</a>
+                            <a href="#" className="vi-lan">Tiếng việt</a>
                             <img className="en-icon" src={ukIcon} />
-                            <a className="en-lan">English</a>
+                            <a href="#" className="en-lan">English</a>
                         </div>
                     </div>
 

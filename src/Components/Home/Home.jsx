@@ -5,7 +5,7 @@ import UserOptions from "./UserOptions";
 import Clock from "./Clock";
 import Logo from "./Logo";
 import './home.css';
-import { scrollingText } from "./scrollingText";
+import ScrollingText from "./ScrollingText";
 import TableHeader from "../Table/TableHeader";
 const Home = () => {
     const dispatch = useDispatch();
@@ -13,21 +13,15 @@ const Home = () => {
     const userData = JSON.parse(localStorage.getItem('userData'));
     return (
         <div>
-            <header className="topbar header">
-                <div className="header header-logo">
+            <header className="header">
+                <div className="header_inner">
                     <Logo />
-                </div>
-                <div className="header header-clock">
                     <Clock />
-                </div>
-                <div className="header header-scrolling">
-                    <scrollingText />
-                </div>
-                <div className="header header-options">
+                    <ScrollingText />
                     <UserOptions />
                 </div>
             </header>
-            <div className="content table">
+            <div className="tableHeader">
                 <TableHeader />
             </div>
         </div>

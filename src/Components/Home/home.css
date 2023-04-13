@@ -2,31 +2,171 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: #242424;
+    color: white;
+}
+.logo{
+    width: 251px;
+}
 
-header.topbar{
-    width: 100%;
-    display: inline-block;
-    position: fixed;
+.clock{
+    font-size: 15px;
+    font-weight: bold;
+    align-items: center;
+    color: white;
+    width: 200px;
 }
-.content{
-    padding-top: 200px;
-    table-layout: fixed;
-    background: rgba(30, 30, 30, 0.85);
-    color: aliceblue;
+.scrolling-container{
+    align-items: center;
+    justify-content: left;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    white-space:nowrap;
+    vertical-align:middle;
+    max-width: 45%;
+    
 }
+
+.scroll-text{
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        
+        -moz-animation: scroll-left 30s linear infinite;
+        -webkit-animation: scroll-left 30s linear infinite;
+        animation: scroll-left 30s linear infinite;
+      }
+      
+      @-moz-keyframes scroll-left {
+        0% { -moz-transform: translateX(100%); }
+        100% { -moz-transform: translateX(-100%); }
+        }
+        @-webkit-keyframes scroll-left {
+        0% { -webkit-transform: translateX(100%); }
+        100% { -webkit-transform: translateX(-100%); }
+        }
+        @keyframes scroll-left {
+        0% { 
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%); 
+        transform: translateX(100%); 
+        }
+        100% { 
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%); 
+        }
+        }
 .header{
-    display: inline-block;
-    padding: 10px;
-    width: fit-content;
+    width: 100%;
+    position: flex;
+}
+
+.label-orange{
+    color: orange;
+    font-weight: bold;
+    padding-right: 12px;
+    
+}
+
+.text-yellow{
+    color: #d5ae22;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+.scroll-value{
+    padding-right: 60px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+.header_inner{
+
+    display:flex;
+    justify-content: left;
+    align-items: center;
     height: fit-content;
-    border: 1px solid black;
+    background-color: rgb(59, 59, 59);
 }
-.header-scrolling{
-    width: 40%;
+.user-option{
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
-.header-options{
-    width: 13%;
+
+.txtUsername{
+    width: fit-content;
+    margin: 0 10px 0 10px;
 }
-.header-logo{
-    width: 25%;
+
+.btnUsername{
+    padding: 10px;
+    width: 180px;
+    border-radius: 5%;
+    border:1px solid #13161b;
+    background-color: #1e262f;
+    color: #fff;
+    font-size: 13px;
+}
+.btnDropdown{
+    padding: 10px;
+    width: 100px;
+    border-radius: 5%;
+    border:1px solid #13161b;
+    background-color: #1e262f;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.dropdown-content{
+    padding: 10px;
+    height: fit-content;
+    display: block;
+    color: #242424;
+}
+
+
+.label-theme{
+    margin: 10px 0 5px 0;
+}
+
+.change-theme,.change-language{
+    margin-bottom: 20px;
+}
+
+.btnLogOut{
+    width: 100px;
+    padding: 5px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #185ba8;
+}
+
+.iconLan{
+width: 25px;
+height: 25px;
+margin: 5px 0 0 5px;
+}
+
+.btnLogOut:hover{
+    background-color:rgb(214, 226, 101);
+}
+
+.radioTheme{
+    height: 15px;
+    width: 15px;
+    padding-right: 5px;
+}
+
+.value-theme{
+    margin-right: 10px;
 }

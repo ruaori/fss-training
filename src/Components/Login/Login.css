@@ -1,3 +1,4 @@
+
 .form-login{
     text-align: center;
     justify-content:right;
@@ -6,6 +7,7 @@
     background-image:  url('../../Assets/background.jpg');
     background-repeat:no-repeat ;
     background-size: cover;
+    
 }
 
 .sub-main{
@@ -66,7 +68,7 @@ input{
     position: absolute;
 }
 
-button{
+.loginButton{
     margin-top: 20px;
     width: 350px;
     height: 50px;
@@ -76,6 +78,10 @@ button{
     color: white;
     border: none;
     background-color: #185ba8;
+}
+
+.loginButton:hover{
+    background-color:rgb(214, 226, 101);
 }
 
 .link{
@@ -102,3 +108,4 @@ a{
 .vi-lan{
     padding: 0 150px 0 0;
 }
+

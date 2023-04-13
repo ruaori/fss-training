@@ -16,13 +16,11 @@ const Clock = () => {
     }, []);
 
     return (
-        <div>
-            <div>
-                <h3>
-                    {format(date, "dd/MM/yyyy kk:mm:ss")}
-                </h3>
+        <div className="clock">
+            <p>
+                {format(date, "dd/MM/yyyy kk:mm:ss")}
+            </p>
 
-            </div>
         </div>
     );
 };
