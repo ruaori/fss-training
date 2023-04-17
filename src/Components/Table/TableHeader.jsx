@@ -9,8 +9,9 @@ import { getData_HNX } from '../../Assets/data_HNX';
 import { getData_HNX30 } from '../../Assets/data_HNX30';
 
 const TableHeader = () => {
-    const [data, setData] = useState([]);
-    setData(getData());
+    // const [data, setData] = useState([]);
+    // let response = getData_HNX30();
+    // setData(response);
     return (
         <div className='table-header'>
             <TableToolbar />
@@ -55,9 +56,9 @@ const TableHeader = () => {
                                 <th>Bought</th>
                                 <th>Sold</th>
                             </tr>
-                            <Tbody>
-                                {data.map((t, index) => { <TableRows item={t} index={index} /> })}
-                            </Tbody>
+
+                            {/* {data.map((t, index) => { <TableRows item={t} index={index} /> })} */}
+
 
                         </table>
                     </Table>
