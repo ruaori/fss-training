@@ -1,10 +1,10 @@
 
 
-const TableRows = (item, index) => {
+const TableRows = (item, i) => {
     return (
         <>
             {!!item && (
-                <tr key={index}>
+                <tr index={i}>
                     <td>{item.symbol}</td>
                     <td>{item.reference}</td>
                     <td>{item.ceiling}</td>

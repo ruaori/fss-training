@@ -8,6 +8,8 @@ import './home.css';
 import ScrollingText from "./ScrollingText";
 import TableHeader from "../Table/TableHeader";
 
+
+
 const Home = () => {
 
     const dispatch = useDispatch();

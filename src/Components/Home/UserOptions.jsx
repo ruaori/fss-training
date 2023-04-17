@@ -5,14 +5,11 @@ import { logoutAction } from "../../Redux/actions/userAction";
 import './home.css';
 import { Radio, RadioGroup, Text, Menu, MenuButton, MenuList, MenuItem, Button, Stack } from "@chakra-ui/react";
 import { useState } from "react";
-import { useColorMode } from "@chakra-ui/react";
-
-
 const UserOptions = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const userData = JSON.parse(localStorage.getItem('userData'));
-    const { colorMode, toggleColorMode } = useColorMode();
+
     const [valueTheme, setValueTheme] = useState('');
     return (
         <div className="user-option">
@@ -29,15 +26,12 @@ const UserOptions = () => {
                                     <div className="change-theme">
                                         <Stack>
                                             <Text className="label-theme">Giao diện</Text>
-                                            {/* <RadioGroup typeof="radio" defaultValue="light" onChange={toggleColorMode} value={valueTheme}>
+                                            <RadioGroup typeof="radio" defaultValue="light" onChange={setValueTheme} value={valueTheme}>
                                                 <Stack direction='row' justifyContent='space-around'>
                                                     <Radio value="light">Sáng</Radio>
                                                     <Radio value="dark">Tối</Radio>
                                                 </Stack>
-                                            </RadioGroup> */}
-                                            <button className="btnLogOut" onClick={toggleColorMode}>
-                                                {colorMode === 'dark' ? 'dark' : 'light'}
-                                            </button>
+                                            </RadioGroup>
                                         </Stack>
 
                                         <div className="change-language">
