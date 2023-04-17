@@ -34,7 +34,7 @@ th{
     border-bottom-right-radius: 5px;
 }
 
-.dropdown-market{
+.dropdown-select{
     display: none;
     position: absolute;
     background-color: #393939;
@@ -46,7 +46,7 @@ th{
     opacity: 0.96;
     border-bottom-right-radius: 5px ;
     border-bottom-left-radius: 5px ;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgb(0,0,0);
 }
 
 .dropdown-market:hover{
@@ -87,6 +87,6 @@ th{
     
 }
 
-.sub-menu-market:hover .dropdown-market,.sub-menu-active:hover .dropdown-market{
+.sub-menu-market:hover .dropdown-select,.sub-menu-active:hover .dropdown-select{
     display: block;
 }

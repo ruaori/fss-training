@@ -44,6 +44,7 @@ const TableToolbar = ({ selectMarket, setSelectMarket }) => {
                                 {labelHOSE()}
                             </div>
                             <div className="dropdown-select">
+
                                 <div
                                     onClick={() => setSelectMarket('hose')}
                                     className={

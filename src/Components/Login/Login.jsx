@@ -60,7 +60,7 @@ const Login = () => {
 
                         <div className='login-form'>
                             <img className="icon" src={passIcon} alt="this" />
-                            <input placeholder="password" type='text' name='password' value={password} onChange={handleChange} className='name' />
+                            <input placeholder="password" type='password' name='password' value={password} onChange={handleChange} className='name' />
                         </div>
 
                         <div className='login-button'>

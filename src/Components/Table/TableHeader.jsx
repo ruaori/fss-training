@@ -1,8 +1,32 @@
+import { useEffect, useState } from 'react';
 import './style.css';
 import TableToolbar from './TableToolbar';
-
+import { getData } from '../../Assets/data_HOSE';
+import { getData_HNX } from '../../Assets/data_HNX';
+import { getData_HNX30 } from '../../Assets/data_HNX30';
 
 const TableHeader = () => {
+    const [data, setData] = useState([]);
+    const [initData, setInitData] = useState([]);
+    const [changeData, setChangeData] = useState([]);
+    const [selectMarket, setSelectMarket] = useState('hose');
+    let response = []
+
+    useEffect(() => {
+        if (selectMarket === 'hose') {
+            response = getData();
+        }
+
+        if (selectMarket === 'hnx') {
+            response = getData_HNX();
+        }
+
+        if (selectMarket === 'hnx30') {
+            response = getData_HNX30()
+        }
+        setInitData(response)
+        setData(response)
+    }, selectMarket);
 
 
     return (
