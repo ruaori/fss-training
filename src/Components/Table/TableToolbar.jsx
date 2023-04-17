@@ -26,101 +26,97 @@ const TableToolbar = ({ selectMarket, setSelectMarket }) => {
     return (
         <div className="table-toolbar">
             <Box pt={2}>
-                <HStack>
-                    <span>
-                        <input className="search-input" placeholder="Tìm kiếm mã CK" />
-                        <button className="btnSearch">+</button>
-                    </span>
-                    <span>
-                        <div
-                            className={
-                                selectMarket === 'hose' || selectMarket === 'vn30'
-                                    ? 'sub-menu-active'
-                                    : 'sub-menu-market'
-                            }>
-                            <div onClick={() => {
-                                setSelectMarket('hose')
-                            }}>
-                                {labelHOSE()}
-                            </div>
-                            <div className="dropdown-select">
-
-                                <div
-                                    onClick={() => setSelectMarket('hose')}
-                                    className={
-                                        setSelectMarket === 'hose'
-                                            ? 'dropdowm-active'
-                                            : 'dropdown-market'
-                                    }
-                                >
-                                    HOSE
-                                </div>
-                                <div
-                                    onClick={() => { setSelectMarket('vn30') }}
-                                    className={
-                                        setSelectMarket === 'vn30'
-                                            ? 'dropdowm-active'
-                                            : 'dropdown-market'
-                                    }
-                                >
-                                    VN30
-                                </div>
-                            </div>
+                <span>
+                    <input className="search-input" placeholder="Tìm kiếm mã CK" />
+                    <button className="btnSearch">+</button>
+                </span>
+                <span>
+                    <div
+                        className={
+                            selectMarket === 'hose' || selectMarket === 'vn30'
+                                ? 'sub-menu-active'
+                                : 'sub-menu-market'
+                        }>
+                        <div onClick={() => {
+                            setSelectMarket('hose')
+                        }}>
+                            {labelHOSE()}
                         </div>
-                        <div
-                            className={
-                                selectMarket === "hnx" || selectMarket === "hnx30"
-                                    ? 'sub-menu-active'
-                                    : 'sub-menu-market'
-                            }
-                        >
+                        <div className="dropdown-select">
+
                             <div
-                                onClick={() => { setSelectMarket('hnx') }}
+                                onClick={() => setSelectMarket('hose')}
+                                className={
+                                    setSelectMarket === 'hose'
+                                        ? 'dropdowm-active'
+                                        : 'dropdown-market'
+                                }
                             >
-                                {labelHNX()}
+                                HOSE
                             </div>
-                            <div className="dropdown-select">
-                                <div
-                                    onClick={() => setSelectMarket('hnx')}
-                                    className={
-                                        setSelectMarket === 'hnx'
-                                            ? 'dropdowm-active'
-                                            : 'dropdown-market'
-                                    }
-                                >
-                                    HNX
-                                </div>
-                                <div
-                                    onClick={() => setSelectMarket('hnx30')}
-                                    className={
-                                        setSelectMarket === 'hnx30'
-                                            ? 'dropdowm-active'
-                                            : 'dropdown-market'
-                                    }
-                                >
-                                    HNX30
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className={
-                                selectMarket === 'upcom'
-                                    ? 'sub-menu-active'
-                                    : 'sub-menu-market'
-                            }
-                        >
                             <div
-                                onClick={() => { setSelectMarket('upcom') }}
+                                onClick={() => { setSelectMarket('vn30') }}
+                                className={
+                                    setSelectMarket === 'vn30'
+                                        ? 'dropdowm-active'
+                                        : 'dropdown-market'
+                                }
                             >
-                                {labelUPCOM()}
+                                VN30
                             </div>
-
                         </div>
-                    </span>
-                </HStack>
+                    </div>
+                    <div
+                        className={
+                            selectMarket === "hnx" || selectMarket === "hnx30"
+                                ? 'sub-menu-active'
+                                : 'sub-menu-market'
+                        }
+                    >
+                        <div
+                            onClick={() => { setSelectMarket('hnx') }}
+                        >
+                            {labelHNX()}
+                        </div>
+                        <div className="dropdown-select">
+                            <div
+                                onClick={() => setSelectMarket('hnx')}
+                                className={
+                                    setSelectMarket === 'hnx'
+                                        ? 'dropdowm-active'
+                                        : 'dropdown-market'
+                                }
+                            >
+                                HNX
+                            </div>
+                            <div
+                                onClick={() => setSelectMarket('hnx30')}
+                                className={
+                                    setSelectMarket === 'hnx30'
+                                        ? 'dropdowm-active'
+                                        : 'dropdown-market'
+                                }
+                            >
+                                HNX30
+                            </div>
+                        </div>
+                    </div>
 
+                    <div
+                        className={
+                            selectMarket === 'upcom'
+                                ? 'sub-menu-active'
+                                : 'sub-menu-market'
+                        }
+                    >
+                        <div
+                            onClick={() => { setSelectMarket('upcom') }}
+                        >
+                            {labelUPCOM()}
+                        </div>
 
+                    </div>
+                </span>
             </Box>
         </div>
     );

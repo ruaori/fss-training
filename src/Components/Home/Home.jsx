@@ -7,7 +7,14 @@ import Logo from "./Logo";
 import './home.css';
 import ScrollingText from "./ScrollingText";
 import TableHeader from "../Table/TableHeader";
+import { getData } from '../../Assets/data_HOSE';
+import { getData_HNX } from '../../Assets/data_HNX';
+import { getData_HNX30 } from '../../Assets/data_HNX30';
+
+
 const Home = () => {
+    const dataRow = getData();
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const userData = JSON.parse(localStorage.getItem('userData'));
@@ -22,7 +29,7 @@ const Home = () => {
                 </div>
             </header>
             <div className="tableHeader">
-                <TableHeader />
+                <TableHeader border={1} data={dataRow} />
             </div>
         </div>
 

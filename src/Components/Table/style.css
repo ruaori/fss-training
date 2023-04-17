@@ -14,6 +14,13 @@ th{
     background: #242424;
     z-index: 1;
 }
+.table-content{
+    width: fit-content;
+    height: fit-content;
+    margin-top: 100px;
+    display: block;
+}
+
 
 .search-input{
     margin-left: 5px;
