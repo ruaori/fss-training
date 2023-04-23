@@ -733,7 +733,7 @@ export const getData_HNX = [
     ts: 1677657887657,
   },
   {
-    symbol: "BAF122029",
+    symbol: "BAF",
     StockId: "81501",
     FullName: "BAF122029",
     tradingdate: "01/03/2023",

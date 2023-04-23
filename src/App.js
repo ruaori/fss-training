@@ -2,12 +2,16 @@ import Login from './Components/Login/Login';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
-import list_routes from './Route/list_routes';
 import PrivateRoute from './Route/PrivateRoute';
+import { useContext } from 'react';
+import { ThemeContext } from './Theme';
 function App() {
+
+  const { theme } = useContext(ThemeContext);
+
   return (
 
-    <div className='App'>
+    <div className={`App ${theme}`}>
       <BrowserRouter>
         {/* {content} */}
         <Routes>

@@ -11,12 +11,15 @@ import Home from './Components/Home/Home';
 import PrivateRoute from './Route/PrivateRoute';
 import { Route, Routes } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
-
+import { ThemeProvider } from './Theme';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+
     </PersistGate>
 
   </Provider>

@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import UserOptions from "./UserOptions";
 import Clock from "./Clock";
 import Logo from "./Logo";
-import './home.css';
 import ScrollingText from "./ScrollingText";
 import TableHeader from "../Table/TableHeader";
+import '../../App.css';
 
 
 
