@@ -45,7 +45,7 @@
     --text-primary: var(--text-primary-light);
     --bg-header: var(--bg-header-light);
     --button-market: var(--button-market-light);
-    --bg-buttonHeader: var(--bg-buttonHeader-dark);
+    --bg-buttonHeader: var(--bg-buttonHeader-light);
 }
 
 
