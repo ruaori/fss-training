@@ -5,11 +5,13 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import persistStore from "redux-persist/es/persistStore";
 import { configureStore } from "@reduxjs/toolkit";
+import Cookies, { expire } from "cookies-js";
+import CookieStorage from "redux-persist-cookie-storage/src/redux-persist-cookie-storage";
 
 
 const persistConfig = {
     key: 'root',
-    storage,
+    storage: new CookieStorage(Cookies),
     whitelist: ['userReducer']
 }
 
