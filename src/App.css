@@ -18,7 +18,7 @@
     --text-primary-dark: #ffffff;
 
     --bg-buttonHeader-dark: #242424;
-    --bg-buttonHeader-light: #236abb;
+    --bg-buttonHeader-light: #073e7c;
 
     --bg-buttonHover-light:#185ba8;
     --bg-buttonHover-dark:#444444;
@@ -157,6 +157,7 @@
     display: flex;
     justify-content: right;
     align-items: center;
+    padding: 5px 0 5px 0;
 }
 
 .txtUsername{
@@ -176,6 +177,10 @@
 
 .btnUsername:hover, .btnDropdown:hover {
     background-color: var(--bg-buttonHover);
+}
+
+Th, Td{
+    border: 1px solid rgb(190, 191, 192);
 }
 
 .btnDropdown{
@@ -348,6 +353,19 @@ td{
     margin-right: 5px;
 }
 
+
+.valueRef{
+    color: rgb(240, 230, 146);
+}
+
+.valueCeil{
+    color: rgb(245, 197, 230);
+}
+
+.valueFloor{
+    color: rgb(156, 227, 248);
+}
+
 .sub-menu-active{
     color: white;
     background-color: #2163af;
@@ -364,3 +382,6 @@ td{
     display: block;
 }
 
+.tableHeader{
+    z-index: -1;
+}

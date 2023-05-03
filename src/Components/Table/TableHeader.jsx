@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../../App.css';
 import TableToolbar from './TableToolbar';
 import { Box } from '@chakra-ui/react';
-import { TableContainer, Table, Tbody } from '@chakra-ui/react';
+import { TableContainer, Table, Tbody, Thead, Th, Tr, Td } from '@chakra-ui/react';
 import TableRows from './TableRows';
 import { getData } from '../../Assets/data_HOSE';
 import { getData_HNX } from '../../Assets/data_HNX';
@@ -154,85 +154,87 @@ const TableHeader = () => {
                 </Box>
             </div>
             <div className="label">
-                <table border={1}>
-                    <thead>
-                        <tr>
-                            <th rowSpan={2}>Symbol</th>
-                            <th rowSpan={2}>Ref</th>
-                            <th rowSpan={2}>Ceil</th>
-                            <th rowSpan={2}>Floor</th>
-                            <th rowSpan={1} colSpan={6}>Bid</th>
-                            <th rowSpan={1} colSpan={3}>Matched</th>
-                            <th rowSpan={1} colSpan={6}>Ask</th>
-                            <th rowSpan={2}>T.Vol</th>
-                            <th rowSpan={1} colSpan={3}>Prices</th>
-                            <th rowSpan={1} colSpan={2}>Remain</th>
-                            <th rowSpan={1} colSpan={2}>Foreign</th>
-                        </tr>
-                        <tr>
-                            <th>Prc 3</th>
-                            <th>Vol 3</th>
-                            <th>Prc 2</th>
-                            <th>Vol 2</th>
-                            <th>Prc 1</th>
-                            <th>Vol 1</th>
-                            <th>Price</th>
-                            <th>Vol</th>
-                            <th>+/-</th>
-                            <th>Prc 1</th>
-                            <th>Vol 1</th>
-                            <th>Prc 2</th>
-                            <th>Vol 2</th>
-                            <th>Prc 3</th>
-                            <th>Vol 3</th>
-                            <th>High</th>
-                            <th>Avg</th>
-                            <th>Low</th>
-                            <th>Bid</th>
-                            <th>Ask</th>
-                            <th>Bought</th>
-                            <th>Sold</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((item, index) => {
+                <TableContainer>
+                    <Table border='1'>
+                        <Thead>
+                            <Tr>
+                                <Th rowSpan={2}>Symbol</Th>
+                                <Th rowSpan={2}>Ref</Th>
+                                <Th rowSpan={2}>Ceil</Th>
+                                <Th rowSpan={2}>Floor</Th>
+                                <Th rowSpan={1} colSpan={6}>Bid</Th>
+                                <Th rowSpan={1} colSpan={3}>Matched</Th>
+                                <Th rowSpan={1} colSpan={6}>Ask</Th>
+                                <Th rowSpan={2}>T.Vol</Th>
+                                <Th rowSpan={1} colSpan={3}>Prices</Th>
+                                <Th rowSpan={1} colSpan={2}>Remain</Th>
+                                <Th rowSpan={1} colSpan={2}>Foreign</Th>
+                            </Tr>
+                            <Tr>
+                                <Th>Prc 3</Th>
+                                <Th>Vol 3</Th>
+                                <Th>Prc 2</Th>
+                                <Th>Vol 2</Th>
+                                <Th>Prc 1</Th>
+                                <Th>Vol 1</Th>
+                                <Th>Price</Th>
+                                <Th>Vol</Th>
+                                <Th>+/-</Th>
+                                <Th>Prc 1</Th>
+                                <Th>Vol 1</Th>
+                                <Th>Prc 2</Th>
+                                <Th>Vol 2</Th>
+                                <Th>Prc 3</Th>
+                                <Th>Vol 3</Th>
+                                <Th>High</Th>
+                                <Th>Avg</Th>
+                                <Th>Low</Th>
+                                <Th>Bid</Th>
+                                <Th>Ask</Th>
+                                <Th>Bought</Th>
+                                <Th>Sold</Th>
+                            </Tr>
+                        </Thead>
+                        <Tbody>
+                            {data.map((item, index) => {
 
 
-                            return (
-                                // <TableRows item={item} index={index} />
-                                <tr>
-                                    <td>{item.symbol}</td>
-                                    <td>{OptimizeValue(item.reference)}</td>
-                                    <td>{OptimizeValue(item.ceiling)}</td>
-                                    <td>{OptimizeValue(item.floor)}</td>
-                                    <td>{OptimizeValue(item.offerPrice3)}</td>
-                                    <td>{OptimizeValue(item.offerVol3)}</td>
-                                    <td>{OptimizeValue(item.offerPrice2)}</td>
-                                    <td>{OptimizeValue(item.offerVol2)}</td>
-                                    <td>{OptimizeValue(item.offerPrice1)}</td>
-                                    <td>{OptimizeValue(item.offerVol1)}</td>
-                                    <td>{OptimizeValue(item.closePrice)}</td>
-                                    <td>{OptimizeValue(item.closeVol)}</td>
-                                    <td>{OptimizeValue(item.change)}</td>
-                                    <td>{OptimizeValue(item.bidPrice1)}</td>
-                                    <td>{OptimizeValue(item.bidVol1)}</td>
-                                    <td>{OptimizeValue(item.bidPrice2)}</td>
-                                    <td>{OptimizeValue(item.bidVol2)}</td>
-                                    <td>{OptimizeValue(item.bidPrice3)}</td>
-                                    <td>{OptimizeValue(item.bidVol3)}</td>
-                                    <td>{OptimizeValue(item.TOTAL_BID_QTTY)}</td>
-                                    <td>{OptimizeValue(item.high)}</td>
-                                    <td>{OptimizeValue(item.averagePrice)}</td>
-                                    <td>{OptimizeValue(item.low)}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                                return (
+                                    // <TableRows item={item} index={index} />
+                                    <Tr>
+                                        <Td className='valueSymbol'>{item.symbol}</Td>
+                                        <Td className='valueRef' >{OptimizeValue(item.reference)}</Td>
+                                        <Td className='valueCeil' >{OptimizeValue(item.ceiling)}</Td>
+                                        <Td className='valueFloor'>{OptimizeValue(item.floor)}</Td>
+                                        <Td>{OptimizeValue(item.offerPrice3)}</Td>
+                                        <Td>{OptimizeValue(item.offerVol3)}</Td>
+                                        <Td>{OptimizeValue(item.offerPrice2)}</Td>
+                                        <Td>{OptimizeValue(item.offerVol2)}</Td>
+                                        <Td>{OptimizeValue(item.offerPrice1)}</Td>
+                                        <Td>{OptimizeValue(item.offerVol1)}</Td>
+                                        <Td>{OptimizeValue(item.closePrice)}</Td>
+                                        <Td>{OptimizeValue(item.closeVol)}</Td>
+                                        <Td>{OptimizeValue(item.change)}</Td>
+                                        <Td>{OptimizeValue(item.bidPrice1)}</Td>
+                                        <Td>{OptimizeValue(item.bidVol1)}</Td>
+                                        <Td>{OptimizeValue(item.bidPrice2)}</Td>
+                                        <Td>{OptimizeValue(item.bidVol2)}</Td>
+                                        <Td>{OptimizeValue(item.bidPrice3)}</Td>
+                                        <Td>{OptimizeValue(item.bidVol3)}</Td>
+                                        <Td>{OptimizeValue(item.TOTAL_BID_QTTY)}</Td>
+                                        <Td>{OptimizeValue(item.high)}</Td>
+                                        <Td>{OptimizeValue(item.averagePrice)}</Td>
+                                        <Td>{OptimizeValue(item.low)}</Td>
+                                        <Td></Td>
+                                        <Td></Td>
+                                        <Td></Td>
+                                        <Td></Td>
+                                    </Tr>
+                                );
+                            })}
+                        </Tbody>
+                    </Table>
+                </TableContainer>
             </div>
 
 

@@ -14,15 +14,75 @@ const UserOptions = () => {
     const navigate = useNavigate();
     const userData = JSON.parse(localStorage.getItem('userData'));
 
-    const [valueTheme, setValueTheme] = useState('');
+
     return (
         <div className="user-option">
             <div className="txtUsername">
-                {/* <button className="btnUsername">{userData.username}</button> */}
-                <button className="btnUsername" onClick={() => toggleTheme()}>{theme}</button>
+                <button className="btnUsername">{userData.username}</button>
             </div>
             <div className="dropdown-menu">
-                <Menu>
+                <Flex ml="auto">
+                    <ChakraProvider>
+                        <Menu>
+                            <MenuButton className="btnDropdown" sx={{ px: 5 }} _focus={{ border: "none" }}>
+                                Actions
+                            </MenuButton>
+                            <MenuList
+                                sx={{
+                                    background: "#3a3a3a",
+                                    px: 2,
+                                    zIndex: 15,
+                                    position: "relative",
+                                }}
+                            >
+                                <Stack>
+                                    <Card px={5} py={2}>
+                                        <Text>
+                                            Giao Diện
+                                        </Text>
+                                        <RadioGroup defaultValue={theme} onChange={toggleTheme} value={theme}>
+                                            <Stack direction="row" justifyContent="space-around">
+                                                <Radio value="light-theme">Sang</Radio>
+                                                <Radio value="dark-theme">Toi</Radio>
+                                            </Stack>
+                                        </RadioGroup>
+                                    </Card>
+
+                                    <Card px={5} py={2}>
+                                        <Text>
+                                            Ngon ngu
+                                        </Text>
+                                        <RadioGroup defaultValue="vi">
+                                            <Stack direction="row" justifyContent="space-around">
+                                                <Radio value="vi">Việt</Radio>
+                                                <Radio value="en">Anh</Radio>
+                                            </Stack>
+                                        </RadioGroup>
+                                    </Card>
+                                    <button className="btnLogOut" onClick={() => {
+                                        dispatch(logoutAction());
+                                        navigate("/login");
+                                    }}>Đăng Xuất</button>
+                                </Stack>
+                            </MenuList>
+                        </Menu>
+                    </ChakraProvider>
+                </Flex>
+            </div>
+
+
+
+
+
+        </div>
+    );
+}
+
+
+export default UserOptions;
+
+/*
+ <Menu>
                     <MenuButton as={Button} className="btnDropdown">Actions</MenuButton>
                     <MenuList
                         sx={{
@@ -74,14 +134,4 @@ const UserOptions = () => {
                         </MenuItem>
                     </MenuList>
                 </Menu>
-            </div>
-
-
-
-
-
-        </div>
-    );
-}
-
-export default UserOptions;
+*/
