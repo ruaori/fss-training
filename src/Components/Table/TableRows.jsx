@@ -13,7 +13,6 @@ const TableRows = (data) => {
 
 
                     return (
-                        // <TableRows item={item} index={index} />
                         <tr>
                             <td>{item.symbol}</td>
                             <td>{OptimizeValue(item.reference)}</td>

@@ -1,12 +1,4 @@
-const userData = [
-    {
-        username: 'thang', password: '123'
-    },
-    {
-        username: 'test',
-        password: '123456'
-    }
-]
+import userData from "../Assets/Data/userData"
 
 const handleLogin = (data) => {
     const isMatched = userData.some((x) => {

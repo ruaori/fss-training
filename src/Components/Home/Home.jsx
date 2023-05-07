@@ -9,14 +9,15 @@ import TableHeader from "../Table/TableHeader";
 import '../../App.css';
 
 
-
 const Home = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const userData = JSON.parse(localStorage.getItem('userData'));
+
     return (
         <div>
+
             <header className="header">
                 <div className="header_inner">
                     <Logo />
@@ -25,6 +26,7 @@ const Home = () => {
                     <UserOptions />
                 </div>
             </header>
+
             <div className="tableHeader">
                 <TableHeader />
             </div>

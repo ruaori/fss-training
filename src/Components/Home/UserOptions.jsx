@@ -7,6 +7,7 @@ import { Radio, RadioGroup, Text, Menu, MenuButton, MenuList, MenuItem, Button, 
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../Theme";
 import { RadioButton } from "react-radio-buttons";
+import zIndex from "@mui/material/styles/zIndex";
 const UserOptions = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -31,7 +32,7 @@ const UserOptions = () => {
                                 sx={{
                                     background: "#3a3a3a",
                                     px: 2,
-                                    zIndex: 15,
+                                    zIndex: 999,
                                     position: "relative",
                                 }}
                             >

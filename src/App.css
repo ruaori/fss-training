@@ -120,7 +120,17 @@
         }
 .header{
     width: 100%;
-    position: flex;
+    position: fixed;
+}
+
+
+.header{
+
+        position: sticky;
+        z-index: 999;
+        top: 0;
+        
+      
 }
 
 .label-orange{
@@ -179,8 +189,8 @@
     background-color: var(--bg-buttonHover);
 }
 
-Th, Td{
-    border: 1px solid rgb(190, 191, 192);
+Td{
+    border: 1px solid var(--text-market);
 }
 
 .btnDropdown{
@@ -243,6 +253,7 @@ margin: 5px 0 0 5px;
 /* style for table */
 
 table{
+    position: relative;
     border-collapse: collapse;
     table-layout: fixed;
     margin: 0 auto 0 auto;
@@ -258,13 +269,7 @@ th{
 }
 
 .label{
-    overflow-y: auto;
     width: fit-content;
-}
-
-.label thead th{
-    position: sticky;
-    top: 0;
 }
 
 
@@ -384,4 +389,19 @@ td{
 
 .tableHeader{
     z-index: -1;
+}
+
+.table-toolbar{
+    position: sticky;
+    top:49.5px;
+    z-index: 998;
+}
+
+Table thead{
+        position: sticky;
+        top: 82px; 
+        z-index: 998;
+        background-color: var(--button-market);
+        border: 1px solid var(--text-market);
+
 }
