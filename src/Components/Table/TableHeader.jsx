@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../../App.css';
 import TableToolbar from './TableToolbar';
 import { Box } from '@chakra-ui/react';
-import { TableContainer, Table, Tbody, Thead, Th, Tr, Td } from '@chakra-ui/react';
+import { TableContainer, Table, Tbody, Thead, Th, Tr, Td, Text } from '@chakra-ui/react';
 import TableRows from './TableRows';
 import { getData } from '../../Assets/Data/data_HOSE';
 import { getData_HNX } from '../../Assets/Data/data_HNX';
@@ -55,6 +55,21 @@ const TableHeader = () => {
     const OptimizeValue = (value) => {
         return (value / 1000).toFixed(2);
     }
+
+    const textColor = (refValue, MatchedValue) => {
+        if (OptimizeValue(MatchedValue) < OptimizeValue(refValue))
+            return "red";
+        if (OptimizeValue(MatchedValue) > OptimizeValue(refValue))
+            return "green";
+        if (OptimizeValue(MatchedValue) === OptimizeValue(refValue))
+            return "yellow";
+        if (OptimizeValue(MatchedValue) === OptimizeValue(data.ceiling))
+            return '#e39ff6';
+        if (OptimizeValue(MatchedValue) === OptimizeValue(data.floor))
+            return 'cyan';
+
+    }
+
 
     return (
         <div className='table-header'>
@@ -201,29 +216,110 @@ const TableHeader = () => {
                             return (
                                 // <TableRows item={item} index={index} />
                                 <Tr>
-                                    <Td className='valueSymbol'>{item.symbol}</Td>
-                                    <Td className='valueRef' >{OptimizeValue(item.reference)}</Td>
-                                    <Td className='valueCeil' >{OptimizeValue(item.ceiling)}</Td>
-                                    <Td className='valueFloor'>{OptimizeValue(item.floor)}</Td>
-                                    <Td>{OptimizeValue(item.offerPrice3)}</Td>
-                                    <Td>{OptimizeValue(item.offerVol3)}</Td>
-                                    <Td>{OptimizeValue(item.offerPrice2)}</Td>
-                                    <Td>{OptimizeValue(item.offerVol2)}</Td>
-                                    <Td>{OptimizeValue(item.offerPrice1)}</Td>
-                                    <Td>{OptimizeValue(item.offerVol1)}</Td>
-                                    <Td>{OptimizeValue(item.closePrice)}</Td>
-                                    <Td>{OptimizeValue(item.closeVol)}</Td>
-                                    <Td>{OptimizeValue(item.change)}</Td>
-                                    <Td>{OptimizeValue(item.bidPrice1)}</Td>
-                                    <Td>{OptimizeValue(item.bidVol1)}</Td>
-                                    <Td>{OptimizeValue(item.bidPrice2)}</Td>
-                                    <Td>{OptimizeValue(item.bidVol2)}</Td>
-                                    <Td>{OptimizeValue(item.bidPrice3)}</Td>
-                                    <Td>{OptimizeValue(item.bidVol3)}</Td>
-                                    <Td>{OptimizeValue(item.TOTAL_BID_QTTY)}</Td>
-                                    <Td>{OptimizeValue(item.high)}</Td>
-                                    <Td>{OptimizeValue(item.averagePrice)}</Td>
-                                    <Td>{OptimizeValue(item.low)}</Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.closePrice)}>
+                                            {item.symbol}
+                                        </Text>
+
+                                    </Td>
+                                    <Td color="yellow" background='#3f3f3f'>{OptimizeValue(item.reference)}</Td>
+                                    <Td color="#e39ff6" background='#3f3f3f'>{OptimizeValue(item.ceiling)}</Td>
+                                    <Td color="cyan" background='#3f3f3f'>{OptimizeValue(item.floor)}</Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice3)}>
+                                            {OptimizeValue(item.offerPrice3)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice3)}>
+                                            {OptimizeValue(item.offerVol3)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice2)}>
+                                            {OptimizeValue(item.offerPrice2)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice2)}>
+                                            {OptimizeValue(item.offerVol2)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice1)}>
+                                            {OptimizeValue(item.offerPrice1)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice1)}>
+                                            {OptimizeValue(item.offerVol1)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.closePrice)}>
+                                            {OptimizeValue(item.closePrice)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.closePrice)}>
+                                            {OptimizeValue(item.closeVol)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.closePrice)}>
+                                            {OptimizeValue(item.change)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.bidPrice1)}>
+                                            {OptimizeValue(item.bidPrice1)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.bidPrice1)}>
+                                            {OptimizeValue(item.bidVol1)}
+                                        </Text>
+
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.bidPrice2)}>
+                                            {OptimizeValue(item.bidPrice2)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.bidPrice2)}>
+                                            {OptimizeValue(item.bidVol2)}
+                                        </Text>
+
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.bidPrice3)}>
+                                            {OptimizeValue(item.bidPrice3)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.bidPrice3)}>
+                                            {OptimizeValue(item.bidVol3)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        {OptimizeValue(item.TOTAL_BID_QTTY)}</Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.high)}>
+                                            {OptimizeValue(item.high)}
+                                        </Text>
+
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.averagePrice)}>
+                                            {OptimizeValue(item.averagePrice)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.low)}>
+                                            {OptimizeValue(item.low)}
+                                        </Text>
+                                    </Td>
                                     <Td></Td>
                                     <Td></Td>
                                     <Td></Td>

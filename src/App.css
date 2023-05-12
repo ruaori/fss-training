@@ -397,6 +397,10 @@ td{
     z-index: 998;
 }
 
+Td{
+    font-weight:600;
+}
+
 Table thead{
         position: sticky;
         top: 82px; 

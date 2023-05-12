@@ -1,4 +1,4 @@
-
+import { Td } from "@chakra-ui/react";
 
 const TableRows = (item) => {
 
@@ -12,33 +12,33 @@ const TableRows = (item) => {
         <>
             {!!item && (
                 <tr>
-                    <td>{item.symbol}</td>
-                    <td>{OptimizeValue(item.reference)}</td>
-                    <td>{OptimizeValue(item.ceiling)}</td>
-                    <td>{OptimizeValue(item.floor)}</td>
-                    <td>{OptimizeValue(item.offerPrice3)}</td>
-                    <td>{OptimizeValue(item.offerVol3)}</td>
-                    <td>{OptimizeValue(item.offerPrice2)}</td>
-                    <td>{OptimizeValue(item.offerVol2)}</td>
-                    <td>{OptimizeValue(item.offerPrice1)}</td>
-                    <td>{OptimizeValue(item.offerVol1)}</td>
-                    <td>{OptimizeValue(item.closePrice)}</td>
-                    <td>{OptimizeValue(item.closeVol)}</td>
-                    <td>{OptimizeValue(item.change)}</td>
-                    <td>{OptimizeValue(item.bidPrice1)}</td>
-                    <td>{OptimizeValue(item.bidVol1)}</td>
-                    <td>{OptimizeValue(item.bidPrice2)}</td>
-                    <td>{OptimizeValue(item.bidVol2)}</td>
-                    <td>{OptimizeValue(item.bidPrice3)}</td>
-                    <td>{OptimizeValue(item.bidVol3)}</td>
-                    <td>{OptimizeValue(item.TOTAL_BID_QTTY)}</td>
-                    <td>{OptimizeValue(item.high)}</td>
-                    <td>{OptimizeValue(item.averagePrice)}</td>
-                    <td>{OptimizeValue(item.low)}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <Td>{item.symbol}</Td>
+                    <Td>{OptimizeValue(item.reference)}</Td>
+                    <Td>{OptimizeValue(item.ceiling)}</Td>
+                    <Td>{OptimizeValue(item.floor)}</Td>
+                    <Td>{OptimizeValue(item.offerPrice3)}</Td>
+                    <Td>{OptimizeValue(item.offerVol3)}</Td>
+                    <Td>{OptimizeValue(item.offerPrice2)}</Td>
+                    <Td>{OptimizeValue(item.offerVol2)}</Td>
+                    <Td>{OptimizeValue(item.offerPrice1)}</Td>
+                    <Td>{OptimizeValue(item.offerVol1)}</Td>
+                    <Td>{OptimizeValue(item.closePrice)}</Td>
+                    <Td>{OptimizeValue(item.closeVol)}</Td>
+                    <Td>{OptimizeValue(item.change)}</Td>
+                    <Td>{OptimizeValue(item.bidPrice1)}</Td>
+                    <Td>{OptimizeValue(item.bidVol1)}</Td>
+                    <Td>{OptimizeValue(item.bidPrice2)}</Td>
+                    <Td>{OptimizeValue(item.bidVol2)}</Td>
+                    <Td>{OptimizeValue(item.bidPrice3)}</Td>
+                    <Td>{OptimizeValue(item.bidVol3)}</Td>
+                    <Td>{OptimizeValue(item.TOTAL_BID_QTTY)}</Td>
+                    <Td>{OptimizeValue(item.high)}</Td>
+                    <Td>{OptimizeValue(item.averagePrice)}</Td>
+                    <Td>{OptimizeValue(item.low)}</Td>
+                    <Td></Td>
+                    <Td></Td>
+                    <Td></Td>
+                    <Td></Td>
                 </tr>
             )}
 
