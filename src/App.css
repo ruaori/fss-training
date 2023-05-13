@@ -20,13 +20,21 @@
     --bg-buttonHeader-dark: #242424;
     --bg-buttonHeader-light: #073e7c;
 
+    --color: #2d8db9;
     --bg-buttonHover-light:#185ba8;
     --bg-buttonHover-dark:#444444;
 
+    --bg-table-light: #d4d4d4;
+    --bg-table-dark: #3f3f3f;
+
+    --border-line-light:  #888585;
+    --border-line-dark: #444444;
 }
 
 
 .dark-theme{
+    --border-line: var(--border-line-dark);
+    --bg-table: var(--bg-table-dark);
     --bg-dropdown: var(--bg-dropdown-dark);
     --bg-primary: var(--bg-primary-dark);
     --text-primary: var(--text-primary-dark);
@@ -38,6 +46,8 @@
 }
 
 .light-theme{
+    --border-line: var(--border-line-light);
+    --bg-table: var(--bg-table-light);
     --bg-buttonHover: var(--bg-buttonHover-light);
     --text-market: var(--text-market-light);
     --bg-dropdown: var(--bg-dropdown-light);
@@ -190,7 +200,7 @@
 }
 
 Td{
-    border: 1px solid var(--text-market);
+    border: 1px solid var(--border-line);
 }
 
 .btnDropdown{
@@ -258,10 +268,11 @@ table{
     table-layout: fixed;
     margin: 0 auto 0 auto;
     width: 100%;
-    border: 1px solid var(--text-primary);
+    border: 1px solid #888585;
 }
 
 th{
+    border: 1px solid rgb(105, 105, 105);
     font-size: 13px;
     padding: 5px 0 5px 0;
     justify-content: center;
@@ -303,7 +314,9 @@ td{
     height: 28px;
     padding-left:15px ;
     background-color: rgb(190, 191, 192);
+    color: black;
 }
+
 
 .btnSearch{
     background-color: #2165b3 ;
@@ -314,6 +327,7 @@ td{
     border: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    margin-right: 5px;
 }
 
 .dropdown-select{
@@ -399,6 +413,8 @@ td{
 
 Td{
     font-weight:600;
+    text-align: right;
+    margin-right: 20px;
 }
 
 Table thead{
@@ -408,4 +424,72 @@ Table thead{
         background-color: var(--button-market);
         border: 1px solid var(--text-market);
 
+}
+
+
+.footer{
+    
+    position: sticky;
+    background-color: black;
+    color: var(--text-market);
+    bottom: 0;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+
+.footer-content{
+    display: fixed;
+}
+
+.btn-footer{
+    display: inline-block;
+}
+
+.btn-quick-order{
+    background-color: #2163af;
+    color: white;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px ;
+    margin-left:1px;
+}
+
+.Text-footer{
+    display: inline-block;
+    width: 77%;
+    margin-left: 10%;
+    font-size: small;
+    color: white;
+}
+
+
+
+.text-value-footer{
+    color:  rgb(10, 133, 10);
+    font-weight: bold;
+    display: inline-block;
+}
+
+.option-bgColor{
+    background-color: var(--bg-primary);
+}
+
+.btn-price-board{
+    color: white;
+    padding: 5px 10px;
+
+}
+
+.btn-quick-order:hover{
+    background-color:#073e7c;
+}
+
+.btn-price-board:hover{
+    background-color: var(--button-market);
+}
+
+.bg-closePrice{
+    background-color: var(--bg-table);
 }

@@ -7,7 +7,7 @@ import Logo from "./Logo";
 import ScrollingText from "./ScrollingText";
 import TableHeader from "../Table/TableHeader";
 import '../../App.css';
-
+import Footer from "../Footer/Footer";
 
 const Home = () => {
 
@@ -29,6 +29,10 @@ const Home = () => {
 
             <div className="tableHeader">
                 <TableHeader />
+            </div>
+
+            <div className="footer">
+                <Footer />
             </div>
         </div>
 

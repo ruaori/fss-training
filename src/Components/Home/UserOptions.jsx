@@ -30,7 +30,6 @@ const UserOptions = () => {
                             </MenuButton>
                             <MenuList
                                 sx={{
-                                    background: "#3a3a3a",
                                     px: 2,
                                     zIndex: 999,
                                     position: "relative",

@@ -62,22 +62,33 @@ const TableHeader = () => {
         if (OptimizeValue(MatchedValue) > OptimizeValue(refValue))
             return "green";
         if (OptimizeValue(MatchedValue) === OptimizeValue(refValue))
-            return "yellow";
+            return "#d4b001";
         if (OptimizeValue(MatchedValue) === OptimizeValue(data.ceiling))
-            return '#e39ff6';
+            return '#CC33FF';
         if (OptimizeValue(MatchedValue) === OptimizeValue(data.floor))
-            return 'cyan';
+            return '#00c5c5';
 
     }
 
+
+
+    const [keySearch, setKeySearch] = useState('');
+
+    const handleKeySearchChange = (e) => {
+        setKeySearch(e.target.value);
+    }
+
+    const KeySearchClick = () => {
+
+    }
 
     return (
         <div className='table-header'>
             <div className="table-toolbar">
                 <Box pt={2}>
                     <span>
-                        <input className="search-input" placeholder="Tìm kiếm mã CK" />
-                        <button className="btnSearch">+</button>
+                        <input className="search-input" onChange={handleKeySearchChange} placeholder="Tìm kiếm mã CK" />
+                        <button className="btnSearch" onClick={KeySearchClick}>+</button>
                     </span>
                     <span>
                         <div
@@ -222,9 +233,9 @@ const TableHeader = () => {
                                         </Text>
 
                                     </Td>
-                                    <Td color="yellow" background='#3f3f3f'>{OptimizeValue(item.reference)}</Td>
-                                    <Td color="#e39ff6" background='#3f3f3f'>{OptimizeValue(item.ceiling)}</Td>
-                                    <Td color="cyan" background='#3f3f3f'>{OptimizeValue(item.floor)}</Td>
+                                    <Td color="#d4b001" className='bg-closePrice' >{OptimizeValue(item.reference)}</Td>
+                                    <Td color="#CC33FF" className='bg-closePrice'>{OptimizeValue(item.ceiling)}</Td>
+                                    <Td color="#00c5c5" className='bg-closePrice'>{OptimizeValue(item.floor)}</Td>
                                     <Td>
                                         <Text color={textColor(item.reference, item.offerPrice3)}>
                                             {OptimizeValue(item.offerPrice3)}
@@ -255,17 +266,18 @@ const TableHeader = () => {
                                             {OptimizeValue(item.offerVol1)}
                                         </Text>
                                     </Td>
-                                    <Td>
+                                    {/*Khop lenh */}
+                                    <Td className='bg-closePrice'>
                                         <Text color={textColor(item.reference, item.closePrice)}>
                                             {OptimizeValue(item.closePrice)}
                                         </Text>
                                     </Td>
-                                    <Td>
+                                    <Td className='bg-closePrice'>
                                         <Text color={textColor(item.reference, item.closePrice)}>
                                             {OptimizeValue(item.closeVol)}
                                         </Text>
                                     </Td>
-                                    <Td>
+                                    <Td className='bg-closePrice'>
                                         <Text color={textColor(item.reference, item.closePrice)}>
                                             {OptimizeValue(item.change)}
                                         </Text>
@@ -304,18 +316,18 @@ const TableHeader = () => {
                                     </Td>
                                     <Td>
                                         {OptimizeValue(item.TOTAL_BID_QTTY)}</Td>
-                                    <Td>
+                                    <Td className='bg-closePrice'>
                                         <Text color={textColor(item.reference, item.high)}>
                                             {OptimizeValue(item.high)}
                                         </Text>
 
                                     </Td>
-                                    <Td>
+                                    <Td className='bg-closePrice'>
                                         <Text color={textColor(item.reference, item.averagePrice)}>
                                             {OptimizeValue(item.averagePrice)}
                                         </Text>
                                     </Td>
-                                    <Td>
+                                    <Td className='bg-closePrice'>
                                         <Text color={textColor(item.reference, item.low)}>
                                             {OptimizeValue(item.low)}
                                         </Text>
