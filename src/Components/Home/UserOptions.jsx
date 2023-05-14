@@ -6,8 +6,8 @@ import '../../App.css';
 import { Radio, RadioGroup, Text, Menu, MenuButton, MenuList, MenuItem, Button, Stack, Flex, Card, ChakraProvider } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../Theme";
-import { RadioButton } from "react-radio-buttons";
-import zIndex from "@mui/material/styles/zIndex";
+import userIcon from '../../Assets/user-icon.svg';
+
 const UserOptions = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -26,7 +26,7 @@ const UserOptions = () => {
                     <ChakraProvider>
                         <Menu>
                             <MenuButton className="btnDropdown" sx={{ px: 5 }} _focus={{ border: "none" }}>
-                                Actions
+                                <img src={userIcon} height='40px' width='40px' />
                             </MenuButton>
                             <MenuList
                                 sx={{
@@ -42,15 +42,15 @@ const UserOptions = () => {
                                         </Text>
                                         <RadioGroup defaultValue={theme} onChange={toggleTheme} value={theme}>
                                             <Stack direction="row" justifyContent="space-around">
-                                                <Radio value="light-theme">Sang</Radio>
-                                                <Radio value="dark-theme">Toi</Radio>
+                                                <Radio value="light-theme">Sáng</Radio>
+                                                <Radio value="dark-theme">Tối</Radio>
                                             </Stack>
                                         </RadioGroup>
                                     </Card>
 
                                     <Card px={5} py={2}>
                                         <Text>
-                                            Ngon ngu
+                                            Ngôn ngữ
                                         </Text>
                                         <RadioGroup defaultValue="vi">
                                             <Stack direction="row" justifyContent="space-around">

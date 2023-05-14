@@ -15,7 +15,8 @@ const TableHeader = () => {
 
     const [data, setData] = useState(getData);
     const [selectMarket, setSelectMarket] = useState('hose');
-
+    const [stockId, setStockId] = useState([]);
+    const [changedData, setChangedData] = useState([]);
 
     let response = []
 
@@ -81,6 +82,82 @@ const TableHeader = () => {
     const KeySearchClick = () => {
 
     }
+
+    //get first 15 stockId
+    useEffect(() => {
+        const array = data.slice(0, 15);
+        const arr = array.map((i) => {
+            return i.StockId;
+        });
+        setStockId(arr);
+    }, [data]);
+    //lay nhieu gia tri ngau nhien trong 1 arr
+    const getMultipleRandom = (arr, num) => {
+        const shuffled = [...arr].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, num);
+    }
+    //set random value in a range
+    const randomInRange = (min, max) => {
+        return Math.round(Math.random() * (max - min) + min);
+    }
+    // //get random 10 stock id and save in changedData every 5s
+    useEffect(() => {
+        const randomStock = setInterval(() => {
+            const randomArr = getMultipleRandom(stockId, 10);
+            setChangedData(randomArr);
+        }, 5000);
+
+        return () => {
+            clearInterval(randomStock, 5000);
+        }
+    }, [stockId]);
+    //change value
+    useEffect(() => {
+        const array = data.map((i) => {
+            const isMatched = changedData.includes(i.StockId);
+            const randomBoolean = Math.random() < 0.5;
+            if (isMatched) {
+                return {
+                    ...i,
+                    closePrice: randomInRange(i.floor, i.ceiling),
+                    //set randomChange cho tung cell neu true thi change value va nguoc lai
+                    //bid price
+                    bidPrice3: randomBoolean
+                        ? randomInRange(i.floor, i.bidPrice2)
+                        : i.bidPrice3,
+                    bidPrice2: randomBoolean
+                        ? randomInRange(i.bidPrice3, i.bidPrice1)
+                        : i.bidPrice2,
+                    bidPrice1: randomBoolean
+                        ? randomInRange(i.bidPrice2, i.ceiling)
+                        : i.bidPrice1,
+                    //offerPrice
+                    offerPrice1: randomBoolean
+                        ? randomInRange(i.floor, i.offerPrice2)
+                        : i.offerPrice1,
+                    offerPrice2: randomBoolean
+                        ? randomInRange(i.offerPrice3, i.offerPrice1)
+                        : i.offerPrice2,
+                    offerPrice3: randomBoolean
+                        ? randomInRange(i.offerPrice2, i.ceiling)
+                        : i.offerPrice3,
+                    //price
+                    high: randomBoolean
+                        ? randomInRange(i.low, i.ceiling)
+                        : i.high,
+
+                    averagePrice: randomBoolean
+                        ? randomInRange(i.low, i.high)
+                        : i.averagePrice,
+
+                    low: randomBoolean
+                        ? randomInRange(i.ceiling, i.averagePrice)
+                        : i.low,
+                };
+            } else return i;
+        });
+        setData(array);
+    }, [changedData]);
 
     return (
         <div className='table-header'>
@@ -236,36 +313,40 @@ const TableHeader = () => {
                                     <Td color="#d4b001" className='bg-closePrice' >{OptimizeValue(item.reference)}</Td>
                                     <Td color="#CC33FF" className='bg-closePrice'>{OptimizeValue(item.ceiling)}</Td>
                                     <Td color="#00c5c5" className='bg-closePrice'>{OptimizeValue(item.floor)}</Td>
+                                    {/* Bid Price*/}
                                     <Td>
-                                        <Text color={textColor(item.reference, item.offerPrice3)}>
-                                            {OptimizeValue(item.offerPrice3)}
+                                        <Text color={textColor(item.reference, item.bidPrice3)}>
+                                            {OptimizeValue(item.bidPrice3)}
                                         </Text>
                                     </Td>
                                     <Td>
-                                        <Text color={textColor(item.reference, item.offerPrice3)}>
-                                            {OptimizeValue(item.offerVol3)}
+                                        <Text color={textColor(item.reference, item.bidPrice3)}>
+                                            {OptimizeValue(item.bidVol3)}
+                                        </Text>
+
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.bidPrice2)}>
+                                            {OptimizeValue(item.bidPrice2)}
                                         </Text>
                                     </Td>
                                     <Td>
-                                        <Text color={textColor(item.reference, item.offerPrice2)}>
-                                            {OptimizeValue(item.offerPrice2)}
+                                        <Text color={textColor(item.reference, item.bidPrice2)}>
+                                            {OptimizeValue(item.bidVol2)}
+                                        </Text>
+
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.bidPrice1)}>
+                                            {OptimizeValue(item.bidPrice1)}
                                         </Text>
                                     </Td>
                                     <Td>
-                                        <Text color={textColor(item.reference, item.offerPrice2)}>
-                                            {OptimizeValue(item.offerVol2)}
+                                        <Text color={textColor(item.reference, item.bidPrice1)}>
+                                            {OptimizeValue(item.bidVol1)}
                                         </Text>
                                     </Td>
-                                    <Td>
-                                        <Text color={textColor(item.reference, item.offerPrice1)}>
-                                            {OptimizeValue(item.offerPrice1)}
-                                        </Text>
-                                    </Td>
-                                    <Td>
-                                        <Text color={textColor(item.reference, item.offerPrice1)}>
-                                            {OptimizeValue(item.offerVol1)}
-                                        </Text>
-                                    </Td>
+
                                     {/*Khop lenh */}
                                     <Td className='bg-closePrice'>
                                         <Text color={textColor(item.reference, item.closePrice)}>
@@ -283,37 +364,38 @@ const TableHeader = () => {
                                         </Text>
                                     </Td>
                                     <Td>
-                                        <Text color={textColor(item.reference, item.bidPrice1)}>
-                                            {OptimizeValue(item.bidPrice1)}
-                                        </Text>
-                                    </Td>
-                                    <Td>
-                                        <Text color={textColor(item.reference, item.bidPrice1)}>
-                                            {OptimizeValue(item.bidVol1)}
-                                        </Text>
 
-                                    </Td>
-                                    <Td>
-                                        <Text color={textColor(item.reference, item.bidPrice2)}>
-                                            {OptimizeValue(item.bidPrice2)}
+                                        {/* Offer Price */}
+                                        <Text color={textColor(item.reference, item.offerPrice1)}>
+                                            {OptimizeValue(item.offerPrice1)}
                                         </Text>
                                     </Td>
                                     <Td>
-                                        <Text color={textColor(item.reference, item.bidPrice2)}>
-                                            {OptimizeValue(item.bidVol2)}
+                                        <Text color={textColor(item.reference, item.offerPrice1)}>
+                                            {OptimizeValue(item.offerVol1)}
                                         </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice2)}>
+                                            {OptimizeValue(item.offerPrice2)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice2)}>
+                                            {OptimizeValue(item.offerVol2)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice3)}>
+                                            {OptimizeValue(item.offerPrice3)}
+                                        </Text>
+                                    </Td>
+                                    <Td>
+                                        <Text color={textColor(item.reference, item.offerPrice3)}>
+                                            {OptimizeValue(item.offerVol3)}
+                                        </Text>
+                                    </Td>
 
-                                    </Td>
-                                    <Td>
-                                        <Text color={textColor(item.reference, item.bidPrice3)}>
-                                            {OptimizeValue(item.bidPrice3)}
-                                        </Text>
-                                    </Td>
-                                    <Td>
-                                        <Text color={textColor(item.reference, item.bidPrice3)}>
-                                            {OptimizeValue(item.bidVol3)}
-                                        </Text>
-                                    </Td>
                                     <Td>
                                         {OptimizeValue(item.TOTAL_BID_QTTY)}</Td>
                                     <Td className='bg-closePrice'>
