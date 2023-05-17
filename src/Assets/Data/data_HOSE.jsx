@@ -1,4 +1,5 @@
 export const getData = [
+
   {
     symbol: "ACB",
     StockId: "436",

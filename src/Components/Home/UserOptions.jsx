@@ -7,13 +7,29 @@ import { Radio, RadioGroup, Text, Menu, MenuButton, MenuList, MenuItem, Button, 
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../Theme";
 import userIcon from '../../Assets/user-icon.svg';
+import { useTranslation } from "react-i18next";
+import '../../Internationalize/i18n';
+import { useEffect } from "react";
+import i18n from "../../Internationalize/i18n";
+import ukIcon from '../../Assets/uk.svg';
+import vnIcon from '../../Assets/vietnam.svg';
 
 const UserOptions = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
-
+    const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const userData = JSON.parse(localStorage.getItem('userData'));
+
+    const [lang, setLang] = useState('vi');
+
+    useEffect(() => {
+        const refeshLang = () => {
+            localStorage.setItem("changeLang", lang);
+            i18n.changeLanguage(lang);
+        }
+        refeshLang();
+    }, [lang]);
 
 
     return (
@@ -26,7 +42,7 @@ const UserOptions = () => {
                     <ChakraProvider>
                         <Menu>
                             <MenuButton className="btnDropdown" sx={{ px: 5 }} _focus={{ border: "none" }}>
-                                <img src={userIcon} height='40px' width='40px' />
+                                <img className="img-user-home" src={userIcon} height='40px' width='40px' />
                             </MenuButton>
                             <MenuList
                                 sx={{
@@ -37,32 +53,36 @@ const UserOptions = () => {
                             >
                                 <Stack>
                                     <Card px={5} py={2}>
-                                        <Text>
-                                            Giao Diện
+                                        <Text fontWeight='bold'>
+                                            {t('Theme')}
                                         </Text>
                                         <RadioGroup defaultValue={theme} onChange={toggleTheme} value={theme}>
                                             <Stack direction="row" justifyContent="space-around">
-                                                <Radio value="light-theme">Sáng</Radio>
-                                                <Radio value="dark-theme">Tối</Radio>
+                                                <Radio value="light-theme">{t('Light')}</Radio>
+                                                <Radio value="dark-theme">{t('Dark')}</Radio>
                                             </Stack>
                                         </RadioGroup>
                                     </Card>
 
                                     <Card px={5} py={2}>
-                                        <Text>
-                                            Ngôn ngữ
+                                        <Text fontWeight='bold'>
+                                            {t('Language')}
                                         </Text>
-                                        <RadioGroup defaultValue="vi">
+                                        <RadioGroup defaultValue={lang} onChange={setLang} value={lang}>
                                             <Stack direction="row" justifyContent="space-around">
-                                                <Radio value="vi">Việt</Radio>
-                                                <Radio value="en">Anh</Radio>
+                                                <Radio value="vi">
+                                                    <img src={vnIcon} width='20px' height='20px' />
+                                                </Radio>
+                                                <Radio value="en">
+                                                    <img src={ukIcon} width='20px' height='20px' />
+                                                </Radio>
                                             </Stack>
                                         </RadioGroup>
                                     </Card>
                                     <button className="btnLogOut" onClick={() => {
                                         dispatch(logoutAction());
                                         navigate("/login");
-                                    }}>Đăng Xuất</button>
+                                    }}>{t('Log Out')}</button>
                                 </Stack>
                             </MenuList>
                         </Menu>
@@ -80,58 +100,3 @@ const UserOptions = () => {
 
 
 export default UserOptions;
-
-/*
- <Menu>
-                    <MenuButton as={Button} className="btnDropdown">Actions</MenuButton>
-                    <MenuList
-                        sx={{
-                            background: "#3a3a3a",
-                            px: 2,
-                            zIndex: 15,
-                            position: "relative",
-                        }}>
-                        <MenuItem opacity={100}>
-                            <div className="dropdown-content">
-
-                                <div className="change-theme">
-                                    <Card>
-                                        <Text className="label-theme">Giao diện</Text>
-                                        <RadioGroup display="flex">
-                                            <RadioButton value='light'>Light</RadioButton>
-                                            <RadioButton value='light'>Dark</RadioButton>
-
-                                        </RadioGroup>
-
-                                    </Card>
-
-                                    <div className="change-language">
-                                        <Card>
-                                            <Stack>
-                                                <Text className="label-theme">Ngon ngu</Text>
-                                                <RadioGroup>
-                                                    <Stack direction='row'>
-                                                        <Radio value="vi">Việt</Radio>
-                                                        <Radio value="en">Anh</Radio>
-                                                    </Stack>
-                                                </RadioGroup>
-                                            </Stack>
-                                        </Card>
-
-                                    </div>
-
-                                    <div className="btn-logout">
-                                        <Stack>
-                                            <button className="btnLogOut" onClick={() => {
-                                                dispatch(logoutAction());
-                                                navigate("/login");
-                                            }}>Đăng Xuất</button>
-                                        </Stack>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </MenuItem>
-                    </MenuList>
-                </Menu>
-*/

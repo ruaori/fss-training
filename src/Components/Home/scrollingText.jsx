@@ -1,4 +1,6 @@
 import { Text } from '@chakra-ui/react'
+import i18n from '../../Internationalize/i18n';
+import { useTranslation } from 'react-i18next';
 
 const data = [
     {
@@ -31,18 +33,21 @@ const data = [
 ]
 
 const Content = () => {
+    const { t, i18n } = useTranslation();
+
+
     return (
         <span>
             {data.map((db, index) => (
                 <span key={index}>
                     <span className="label-orange">{db.symbol}: </span>&nbsp;
-                    <span className="text-yellow">KLGD: </span>
+                    <span className="text-yellow">{t('TransVol')}: </span>
                     <span className="scroll-value">{db.properties.TransVol}</span>&nbsp;
-                    <span className="text-yellow">GTGD: </span>
+                    <span className="text-yellow">{t('TransVal')}: </span>
                     <span className="scroll-value">{db.properties.TransVal}</span>&nbsp;
-                    <span className="text-yellow">KT thỏa thuận: </span>
+                    <span className="text-yellow">{t('PutthroughTransVol')}: </span>
                     <span className="scroll-value">{db.properties.PutthroughTransVol}</span>&nbsp;
-                    <span className="text-yellow">GT thỏa thuận: </span>
+                    <span className="text-yellow">{t('PutthroughTransVal')}: </span>
                     <span className="scroll-value">{db.properties.PutthroughTransVal}</span>&nbsp;
                 </span>
             ))}

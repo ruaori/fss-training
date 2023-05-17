@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Button, Box, HStack } from "@chakra-ui/react";
+import i18n from "../../Internationalize/i18n";
+import { useTranslation } from "react-i18next";
 
 const TableToolbar = ({ selectMarket, setSelectMarket }) => {
+    const { t, i18n } = useTranslation();
 
     [selectMarket, setSelectMarket] = useState('hose');
 
@@ -27,7 +30,7 @@ const TableToolbar = ({ selectMarket, setSelectMarket }) => {
         <div className="table-toolbar">
             <Box pt={2}>
                 <span>
-                    <input className="search-input" placeholder="Tìm kiếm mã CK" />
+                    <input className="search-input" placeholder={t("Text search Stock ID")} />
                     <button className="btnSearch">+</button>
                 </span>
                 <span>

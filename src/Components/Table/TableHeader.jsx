@@ -9,7 +9,8 @@ import { getData_HNX } from '../../Assets/Data/data_HNX';
 import { getData_HNX30 } from '../../Assets/Data/data_HNX30';
 import getData_UPCOM from '../../Assets/Data/data_UPCOM';
 import getData_VN30 from '../../Assets/Data/data_VN30';
-
+import i18n from '../../Internationalize/i18n';
+import { useTranslation } from 'react-i18next';
 
 const TableHeader = () => {
 
@@ -17,7 +18,7 @@ const TableHeader = () => {
     const [selectMarket, setSelectMarket] = useState('hose');
     const [stockId, setStockId] = useState([]);
     const [changedData, setChangedData] = useState([]);
-
+    const { t, i18n } = useTranslation();
     let response = []
 
     const labelHOSE = () => {
@@ -260,41 +261,41 @@ const TableHeader = () => {
                 <Table className='table-sticky'>
                     <thead>
                         <Tr>
-                            <th rowSpan={2}>Symbol</th>
-                            <th rowSpan={2}>Ref</th>
-                            <th rowSpan={2}>Ceil</th>
-                            <th rowSpan={2}>Floor</th>
-                            <th rowSpan={1} colSpan={6}>Bid</th>
-                            <th rowSpan={1} colSpan={3}>Matched</th>
-                            <th rowSpan={1} colSpan={6}>Ask</th>
-                            <th rowSpan={2}>T.Vol</th>
-                            <th rowSpan={1} colSpan={3}>Prices</th>
-                            <th rowSpan={1} colSpan={2}>Remain</th>
-                            <th rowSpan={1} colSpan={2}>Foreign</th>
+                            <th rowSpan={2}>{t('Symbol')}</th>
+                            <th rowSpan={2}>{t('Ref')}</th>
+                            <th rowSpan={2}>{t('Ceil')}</th>
+                            <th rowSpan={2}>{t('Floor')}</th>
+                            <th rowSpan={1} colSpan={6}>{t('Bid side')}</th>
+                            <th rowSpan={1} colSpan={3}>{t('Matched')}</th>
+                            <th rowSpan={1} colSpan={6}>{t('Ask side')}</th>
+                            <th rowSpan={2}>{t('T.Vol')}</th>
+                            <th rowSpan={1} colSpan={3}>{t('Prices')}</th>
+                            <th rowSpan={1} colSpan={2}>{t('Remain')}</th>
+                            <th rowSpan={1} colSpan={2}>{t('Foreign')}</th>
                         </Tr>
                         <Tr>
-                            <th>Prc 3</th>
-                            <th>Vol 3</th>
-                            <th>Prc 2</th>
-                            <th>Vol 2</th>
-                            <th>Prc 1</th>
-                            <th>Vol 1</th>
-                            <th>Price</th>
-                            <th>Vol</th>
+                            <th>{t('Prc 3')}</th>
+                            <th>{t('Vol 3')}</th>
+                            <th>{t('Prc 2')}</th>
+                            <th>{t('Vol 2')}</th>
+                            <th>{t('Prc 1')}</th>
+                            <th>{t('Vol 1')}</th>
+                            <th>{t('Price')}</th>
+                            <th>{t('Vol')}</th>
                             <th>+/-</th>
-                            <th>Prc 1</th>
-                            <th>Vol 1</th>
-                            <th>Prc 2</th>
-                            <th>Vol 2</th>
-                            <th>Prc 3</th>
-                            <th>Vol 3</th>
-                            <th>High</th>
-                            <th>Avg</th>
-                            <th>Low</th>
-                            <th>Bid</th>
-                            <th>Ask</th>
-                            <th>Bought</th>
-                            <th>Sold</th>
+                            <th>{t('Prc 1')}</th>
+                            <th>{t('Vol 1')}</th>
+                            <th>{t('Prc 2')}</th>
+                            <th>{t('Vol 2')}</th>
+                            <th>{t('Prc 3')}</th>
+                            <th>{t('Vol 3')}</th>
+                            <th>{t('High')}</th>
+                            <th>{t('Avg')}</th>
+                            <th>{t('Low')}</th>
+                            <th>{t('Bid')}</th>
+                            <th>{t('Ask')}</th>
+                            <th>{t('Bought')}</th>
+                            <th>{t('Sold')}</th>
                         </Tr>
                     </thead>
                     <Tbody>

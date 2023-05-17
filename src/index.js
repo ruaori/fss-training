@@ -8,6 +8,8 @@ import { persistor, store } from './Redux/store/Store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from './Theme';
 import { CookiesProvider } from 'react-cookie';
+import './Internationalize/i18n';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
@@ -17,7 +19,6 @@ root.render(
           <App />
         </ThemeProvider>
       </CookiesProvider>
-
     </PersistGate>
 
   </Provider>

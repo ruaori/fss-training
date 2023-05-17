@@ -449,15 +449,17 @@ Table thead{
 .btn-quick-order{
     background-color: #2163af;
     color: white;
-    padding: 5px 10px;
+    padding: 5px 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px ;
     margin-left:1px;
 }
 
+
+
 .Text-footer{
     display: inline-block;
-    width: 77%;
+    width: 75%;
     margin-left: 10%;
     font-size: small;
     color: white;
@@ -479,6 +481,11 @@ Table thead{
     color: white;
     padding: 5px 10px;
 
+}
+
+.img-user-home{
+    margin-left: 10px;
+    padding: 10px;
 }
 
 .btn-quick-order:hover{
